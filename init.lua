@@ -15,6 +15,9 @@ vim.opt.list = true
 vim.opt.listchars = { tab = '>> ', trail = '.', nbsp = '_' }
 vim.opt.cursorline = true
 
+-- This is required by "nvim-notify".
+vim.opt.termguicolors = true
+
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>')
 vim.keymap.set("n", "W", vim.diagnostic.open_float, { noremap = true, silent = true })
 
