@@ -14,6 +14,8 @@ vim.opt.signcolumn = 'yes'
 vim.opt.list = true
 vim.opt.listchars = { tab = '>> ', trail = '.', nbsp = '_' }
 vim.opt.cursorline = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
 
 -- This is required by "nvim-notify".
 vim.opt.termguicolors = true

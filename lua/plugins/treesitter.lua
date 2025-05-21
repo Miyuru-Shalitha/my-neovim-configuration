@@ -16,6 +16,8 @@ return {
           "odin",
           "javascript",
           "typescript",
+          "html",
+          "tsx"
         },
         sync_install = false,
         auto_install = false,
@@ -29,7 +31,7 @@ return {
             end
           end,
           additional_vim_regex_highlighting = false,
-        },
+        }
       })
     end,
   },
