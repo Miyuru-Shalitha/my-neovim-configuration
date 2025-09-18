@@ -8,7 +8,8 @@ return {
     config = function()
       require("ibl").setup({
         indent = {
-          char = "\u{258F}"
+          -- char = "\u{258F}"
+          char = "\u{2506}"
         }
       })
     end,

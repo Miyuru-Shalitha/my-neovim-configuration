@@ -20,35 +20,41 @@ vim.opt.smartindent = true
 -- This is required by "nvim-notify".
 vim.opt.termguicolors = true
 
+vim.opt.tags = "./tags,tags;/"
+
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>')
 vim.keymap.set("n", "W", vim.diagnostic.open_float, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>ct", function()
+  vim.fn.system("ctags -R .")
+  print("ctags generated")
+end, { desc = "Generate ctags for current directory" })
 
 vim.api.nvim_create_autocmd("TermOpen", {
-    pattern = "*",
-    callback = function()
-        vim.opt.number = false
-        vim.opt.relativenumber = false
-    end
+  pattern = "*",
+  callback = function()
+    vim.opt.number = false
+    vim.opt.relativenumber = false
+  end
 })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-    desc = "Highlight when yanking.",
-    group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
-    callback = function()
-        vim.highlight.on_yank()
-    end
+  desc = "Highlight when yanking.",
+  group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end
 })
 
 vim.diagnostic.config({
-    virtual_text = true,
-    float = {
-        focusable = false,
-        style = "minimal",
-        border = "rounded",
-        source = "always",
-        header = "",
-        prefix = ""
-    }
+  virtual_text = true,
+  float = {
+    focusable = false,
+    style = "minimal",
+    border = "rounded",
+    source = "always",
+    header = "",
+    prefix = ""
+  }
 })
 
 require("config.lazy")
